@@ -1,0 +1,23 @@
+{
+  "name": "shoppingcartmern",
+  "version": "1.0.0",
+  "description": "Shopping list build with the MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ivan Zhang",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "jshint": "^2.10.1",
+    "mongoose": "^5.4.17"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
