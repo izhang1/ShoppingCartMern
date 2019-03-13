@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import uuid from 'uuid';
+import { connect } from 'react-redux';
+import { getItems } from '../actions/itemActions';
+import { PropTypes } from 'prop-types';
 
 class ShoppingList extends Component {
-    state = {
-        items: [
-            { id: uuid(), name: 'Eggs' },
-            { id: uuid(), name: 'Milk' },
-            { id: uuid(), name: 'Sugar' },
-            { id: uuid(), name: 'Flour' }
-        ]
+
+    componentDidMount() {
+        this.props.getItems();
     }
 
     render() {
-        const { items } = this.state;
+        const { items } = this.props.item;
         return (
             <Container>
                 <Button
@@ -55,6 +54,15 @@ class ShoppingList extends Component {
     }
 }
 
+ShoppingList.propTypes = {
+    getItems: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    item: state.item
+});
+
 // Using export default you can directly import that and omit the cyurly braces 
 // https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export#Using_the_default_export
-export default ShoppingList;
+export default connect(mapStateToProps, { getItems })(ShoppingList);
