@@ -9,6 +9,8 @@ import {
     NavLink,
     Container
 } from 'reactstrap';
+import RegisterModal from './auth/RegisterModal';
+import Logout from './auth/Logout';
 
 class AppNavBar extends Component {
     state = {
@@ -33,7 +35,12 @@ class AppNavBar extends Component {
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     <NavLink href="/">Home</NavLink>
-                                    <NavLink href="https://www.catify.co">Catify</NavLink>
+                                    <NavItem> 
+                                        <RegisterModal /> 
+                                    </NavItem>
+                                    <NavItem> 
+                                        <Logout /> 
+                                    </NavItem>
                                 </NavItem>
                             </Nav>
                         </Collapse>
